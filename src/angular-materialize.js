@@ -331,20 +331,18 @@
           };
       }]);
 
-    // Example: <a href="#" data-activates="nav-mobile" class="button-collapse top-nav" data-sidenav="left" data-menuwidth="500"  data-closeonclick="true">
-    // data-activates is handled by the jQuery plugin.
+    // Example: <a href="#" data-target="nav-mobile" class="button-collapse top-nav" data-sidenav="left" data-closeonclick="true">
+    // data-target is handled by the jQuery plugin.
     angular.module("ui.materialize.sidenav", [])
         .directive("sidenav", [function () {
+            $('.sidenav').sidenav();
             return {
                 scope: {
-                    menuwidth: "@",
-                    closeonclick: "@"
                 },
                 link: function (scope, element, attrs) {
-                    element.sideNav({
-                        menuWidth: (angular.isDefined(scope.menuwidth)) ? parseInt(scope.menuwidth, 10) : undefined,
+                    element.sidenav({
                         edge: attrs.sidenav ? attrs.sidenav : "left",
-                        closeOnClick: (angular.isDefined(scope.closeonclick)) ? scope.closeonclick == "true" : undefined
+
                     });
                 }
             };

@@ -27,9 +27,9 @@
 </head>
 <body ng-app="materializeApp" ng-controller="BodyController">
 <header>
-    <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav" data-sidenav="left" data-closeonclick="false"><i
+    <div class="container"><a href="#" data-target="nav-mobile" class="sidenav-trigger top-nav" data-sidenav="left" data-closeonclick="false"><i
             class="mdi-navigation-menu"></i></a></div>
-    <ul id="nav-mobile" class="side-nav fixed">
+    <ul id="nav-mobile" class="sidenav fixed">
         <!--Maybe a logo?-->
         <!--<li class="logo" style="margin-left: -15px;"><a id="logo-container" href="http://materializecss.com/"class="brand-logo"><h3></h3></a></li>-->
         <li class="bold"><a href="#about" class="waves-effect waves-teal">About angular-materialize</a></li>
@@ -745,20 +745,20 @@ $scope.onStop = function () {
 
         <div class="row" id="sidenav">
             <h2 class="header">Sidenav</h2>
-            <p>Make sure to have a side-menu with id corresponding to the argument <code class="language-markup">data-activates</code>. </p>
-            <p>If you copy this page, there is another side-nav link in the top of the page, which initializes first and therefore sets the options. </p>
-            <p>If you add the class <code class="language-markup">button-collapse</code> the button will only show when the side-menu is hidden.  <br/>
+            <p>Make sure to have a side-menu with id corresponding to the argument <code class="language-markup">data-target</code>. </p>
+            <p>If you copy this page, there is another sidenav link in the top of the page, which initializes first and therefore sets the options. </p>
+            <p>If you add the class <code class="language-markup">sidenav</code> the button will only show when the side-menu is hidden.  <br/>
             This is not done on the below button, for demonstration purposes, although it is added in the code example.</p>
         </div>
         <div class="row">
-            <a href="#" data-activates="nav-mobile" class="top-nav btn waves-effect waves-light" data-sidenav="left" data-closeonclick="false">
-                Show side-nav
+            <a href="#" data-target="nav-mobile" class="top-nav btn waves-effect waves-light" data-sidenav="left" data-closeonclick="false">
+                Show sidenav
             </a>
         </div>
         <div class="row">
 <pre><code class="language-markup" ng-non-bindable>
-&lt;a href="#" class="button-collapse" data-activates="nav-mobile" data-sidenav="left" data-menuwidth="500" data-closeonclick="false"&gt;
-    Show side-nav
+&lt;a href="#" class="sidenav" data-target="nav-mobile" data-sidenav="left" data-closeonclick="false"&gt;
+    Show sidenav
 &lt;/a&gt;</code></pre>
         </div>
 
