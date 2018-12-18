@@ -385,9 +385,9 @@
                                 }
                             }
                             scope.$evalAsync(function () {
-                                //element.material_select();
+                                //element.formSelect();
                                 //Lines 301-311 fix Dogfalo/materialize/issues/901 and should be removed and the above uncommented whenever 901 is fixed
-                                element.material_select(function () {
+                                element.formSelect(function () {
                                     if (!attrs.multiple) {
                                         element.siblings('input.select-dropdown').trigger('close');
                                     }
@@ -549,7 +549,7 @@
         }]);
 
     /**
-     * Add pickadate directive
+     * Add datepicker directive
      * Type text is mandatory
      * Example:
      <input input-date
@@ -786,9 +786,9 @@
                             if (!scope.container) {
                                 delete options.container;
                             }
-                            var pickadateInput = element.pickadate(options);
-                            //pickadate API
-                            var picker = pickadateInput.pickadate('picker');
+                            var datepickerInput = element.datepicker(options);
+                            //datepicker API
+                            var picker = datepickerInput.datepicker('picker');
 
                             //watcher of min, max, and disabled dates
                             scope.$watch('max', function(newMax) {
