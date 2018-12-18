@@ -135,7 +135,7 @@
                 },
                 link: function (scope, element, attrs) {
                     $timeout(function () {
-                        element.material_chip({
+                        element.chips({
                             data: scope.ngModel || [],
                             placeholder: scope.placeholder || '',
                             secondaryPlaceholder: scope.secondaryPlaceholder || '',
