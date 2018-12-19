@@ -498,14 +498,6 @@
                 scope: {},
                 link: function (scope, element) {
                     $timeout(function () {
-                        var input = element.find("> > input, > > textarea");
-                        var label = element.find("> > label");
-
-                        if (input.length == 1 && label.length == 1 && !input.attr("id") && !label.attr("for")) {
-                            var id = "angularMaterializeID" + inputLabelIdCounter++;
-                            input.attr("id", id);
-                            label.attr("for", id);
-                        }
 
                         M.updateTextFields();
 
@@ -515,13 +507,13 @@
                         element.find("> > .materialize-textarea").each(function () {
                             var that = $(this);
                             that.addClass("materialize-textarea");
-                            that.trigger("autoresize");
+                            M.textareaAutoResize(that);
                             var model = that.attr("ng-model");
                             if (model) {
                                 scope.$parent.$watch(model, function (a, b) {
                                     if (a !== b) {
                                         $timeout(function () {
-                                            that.trigger("autoresize");
+                                            M.textareaAutoResize(that);
                                         });
                                     }
                                 });

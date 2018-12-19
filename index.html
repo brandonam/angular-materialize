@@ -192,21 +192,21 @@
                     <a class="btn waves-effect waves-light" ng-click="showInputLabel = !showInputLabel">Toggle input</a>
                 </div>
                 <div class="col s4" ng-if="showInputLabel">
-                    <div input-field>
-                        <input type="text" ng-model="dummyInputs.inputFieldInput" length="150">
-                        <label>Input label</label>
+                    <div class="input-field col s12" input-field>
+                        <input id="generalText" type="text" ng-model="dummyInputs.inputFieldInput" length="150">
+                        <label for="generalText">Input label</label>
                     </div>
                 </div>
                 <div class="col s3" ng-if="showInputLabel">
-                    <div input-field>
-                        <textarea ng-model="dummyInputs.textAreaInput" class="materialize-textarea"></textarea>
-                        <label>Textarea</label>
+                    <div class="input-field col s12" input-field>
+                        <textarea id="textarea1" ng-model="dummyInputs.textAreaInput" class="materialize-textarea"></textarea>
+                        <label for="textarea1">Textarea</label>
                     </div>
                 </div>
                 <div class="col s3" ng-if="showInputLabel">
-                    <div input-field>
-                        <textarea ng-model="dummyInputs.textAreaInput" class="materialize-textarea"></textarea>
-                        <label>Synchronized textarea</label>
+                    <div class="input-field col s12" input-field>
+                        <textarea id="textarea2" ng-model="dummyInputs.textAreaInput" class="materialize-textarea"></textarea>
+                        <label for="textarea2">Synchronized textarea</label>
                     </div>
                 </div>
             </div>
