@@ -1266,7 +1266,7 @@
                                 if (!angular.isDefined(value)) {
                                     return;
                                 }
-                                (value === true) ? modalEl.modal().open(): modalEl.modal().close();
+                                (value === true) ? modalEl.modal('open'): modalEl.modal('close');
                             });
                         }
                     });
