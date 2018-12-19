@@ -357,9 +357,9 @@
                 link: function (scope, element, attrs) {
                     element.sidenav({
                         edge: attrs.sidenav ? attrs.sidenav : "left",
-
                     });
                 }
+                
             };
         }]);
 
@@ -801,31 +801,25 @@
                             }
                             var datepickerInput = element.datepicker(options);
                             //datepicker API
-                            var picker = datepickerInput.datepicker('picker');
+                            var picker = M.Datepicker.getInstance(datepickerInput);
 
                             //watcher of min, max, and disabled dates
                             scope.$watch('max', function (newMax) {
                                 if (picker) {
                                     var maxDate = new Date(newMax);
-                                    picker.set({
-                                        max: isValidDate(maxDate) ? maxDate : false
-                                    });
+                                    picker.options.maxDate = isValidDate(maxDate) ? maxDate : false;
                                 }
                             });
                             scope.$watch('min', function (newMin) {
                                 if (picker) {
                                     var minDate = new Date(newMin);
-                                    picker.set({
-                                        min: isValidDate(minDate) ? minDate : false
-                                    });
+                                    picker.options.minDate = isValidDate(minDate) ? minDate : false                                    ;
                                 }
                             });
                             scope.$watch('disable', function (newDisabled) {
                                 if (picker) {
                                     var disabledDates = angular.isDefined(newDisabled) && angular.isArray(newDisabled) ? newDisabled : false;
-                                    picker.set({
-                                        disable: disabledDates
-                                    });
+                                    picker.options.disable = disabledDates;
                                 }
                             });
                         });

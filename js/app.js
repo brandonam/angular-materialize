@@ -13,9 +13,8 @@ var app = angular.module('materializeApp', ['ui.materialize'])
         $scope.dummyInputs = {};
 
         $scope.toast = function (message, duration) {
-            M.toast(message, duration);
+            M.toast();
         }
-
     }])
     .controller('CollapsibleController', ["$scope", function ($scope) {
         $scope.collapsibleElements = [{
@@ -47,7 +46,7 @@ var app = angular.module('materializeApp', ['ui.materialize'])
         };
     }]).controller('PaginationController', ["$scope", function ($scope) {
         $scope.changePage = function (page) {
-            M.toast("Changed to page " + page, 1000);
+            M.toast({html:"Changed to page " + page});
         }
     }])
     .controller('DateController', ["$scope", function ($scope) {
