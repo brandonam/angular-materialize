@@ -1276,10 +1276,10 @@
 
 
     /*     example usage:
-    <!-- data-position can be : bottom, top, left, or right -->
-    <!-- data-delay controls delay before tooltip shows (in milliseconds)-->
-    <a class="btn" tooltipped data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Hover me!</a>
-     */
+     <!-- data-position can be : bottom, top, left, or right -->
+     <!-- data-delay controls delay before tooltip shows (in milliseconds)-->
+     <a class="btn" tooltipped data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Hover me!</a>
+      */
     angular.module("ui.materialize.tooltipped", [])
         .directive("tooltipped", ["$compile", "$timeout", function ($compile, $timeout) {
             return {
@@ -1296,18 +1296,18 @@
                             // https://github.com/Dogfalo/materialize/issues/3546
                             // if element.addClass("tooltipped") would not be executed, then probably this would not be needed
                             if (element.attr('data-tooltip-id')) {
-                                element.tooltip().close();
+                                M.Tooltip.getInstance(element).close();
                             }
                             element.tooltip();
                         });
                         rmDestroyListener = scope.$on('$destroy', function () {
-                            element.tooltip().close();
+                            M.Tooltip.getInstance(element).close();
                         });
                     }
 
                     attrs.$observe('tooltipped', function (value) {
                         if (value === 'false' && rmDestroyListener !== Function.prototype) {
-                            element.tooltip().close();
+                            M.Tooltip.getInstance(element).close();
                             rmDestroyListener();
                             rmDestroyListener = Function.prototype;
                         } else if (value !== 'false' && rmDestroyListener === Function.prototype) {
@@ -1321,7 +1321,7 @@
 
                     // just to be sure, that tooltip is removed when somehow element is destroyed, but the parent scope is not
                     element.on('$destroy', function () {
-                        element.tooltip().destroy();
+                        M.Tooltip.getInstance(element).destroy();
                     });
 
                     scope.$watch(function () {
