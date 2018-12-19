@@ -570,11 +570,19 @@ $scope.onStop = function () {
                     <label for="message">Message</label>
                 </div>
                 <div class="col s2" input-field>
-                    <input id="toastDuration" type="text" ng-model="dummyInputs.duration" ng-init="dummyInputs.duration = 1000">
+                    <input id="toastDuration" type="text" ng-model="dummyInputs.duration" ng-init="dummyInputs.duration = 4000">
                     <label for="toastDuration">Toast duration</label>
                 </div>
+                <div class="col s2" input-field>
+                    <input id="toastInDuration" type="text" ng-model="dummyInputs.induration" ng-init="dummyInputs.induration = 1000">
+                    <label for="toastInDuration">Toast In duration</label>
+                </div>
+                <div class="col s2" input-field>
+                    <input id="toastOutDuration" type="text" ng-model="dummyInputs.outduration" ng-init="dummyInputs.outduration = 1000">
+                    <label for="toastOutDuration">Toast Out duration</label>
+                </div>
                 <div class="input-field col s4">
-                    <a class="waves-effect waves-light btn" message="{{dummyInputs.message}}" duration="{{dummyInputs.duration}}"
+                    <a class="waves-effect waves-light btn" message="{{dummyInputs.message}}" duration="{{dummyInputs.duration}}" induration="{{dummyInputs.induration}}" outduration="{{dummyInputs.outduration}}"
                         callback="callback('Your toast was dismissed')" toast='click'>Toast!</a>
                 </div>
             </div>
