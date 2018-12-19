@@ -1,4 +1,7 @@
 var app = angular.module('materializeApp', ['ui.materialize'])
+    .run(function(){
+        M.AutoInit();
+    })
     .controller('BodyController', ["$scope", function ($scope) {
         $scope.select = {
             value1: "Option1",
