@@ -387,12 +387,7 @@
                             scope.$evalAsync(function () {
                                 //element.formSelect();
                                 //Lines 301-311 fix Dogfalo/materialize/issues/901 and should be removed and the above uncommented whenever 901 is fixed
-                                element.formSelect(function () {
-                                    if (!attrs.multiple) {
-                                        element.siblings('input.select-dropdown').trigger('close');
-                                    }
-                                    fixActive();
-                                });
+                                element.formSelect();
                                 var onMouseDown = function (e) {
                                     // preventing the default still allows the scroll, but blocks the blur.
                                     // We're inside the scrollbar if the clientX is >= the clientWidth.
@@ -449,7 +444,7 @@
     /*
      Example usage, notice the empty dropdown tag in the dropdown trigger.
      <!-- Dropdown Trigger -->
-     <a class='dropdown-button btn' href='javascript:void(0);' data-activates='demoDropdown'
+     <a class='dropdown-trigger btn' href='javascript:void(0);' data-activates='demoDropdown'
         dropdown constrain-width="false">
         Select a demo
      </a>
@@ -468,8 +463,7 @@
                     constrainWidth: "@",
                     hover: "@",
                     alignment: "@",
-                    gutter: "@",
-                    belowOrigin: "@"
+                    coverTrigger: "@"
                 },
                 link: function (scope, element, attrs) {
                     $timeout(function () {
@@ -479,8 +473,7 @@
                             constrainWidth: (angular.isDefined(scope.constrainWidth)) ? scope.constrainWidth : undefined,
                             hover: (angular.isDefined(scope.hover)) ? scope.hover : undefined,
                             alignment: (angular.isDefined(scope.alignment)) ? scope.alignment : undefined,
-                            gutter: (angular.isDefined(scope.gutter)) ? scope.gutter : undefined,
-                            belowOrigin: (angular.isDefined(scope.belowOrigin)) ? scope.belowOrigin : undefined
+                            coverTrigger: (angular.isDefined(scope.coverTrigger)) ? scope.coverTrigger : undefined
                         });
                     });
                 }
@@ -828,11 +821,10 @@
             return {
                 restrict: 'A',
                 scope: {
-                    default: "@",
-                    fromnow: "=?",
+                    defaultTime: "@",
+                    fromNow: "=?",
                     donetext: "@",
                     autoclose: "=?",
-                    ampmclickable: "=?",
                     darktheme: "=?",
                     twelvehour: "=?",
                     vibrate: "=?"
@@ -841,11 +833,10 @@
                     $(element).addClass("timepicker");
                     if (!(scope.ngReadonly)) {
                         element.pickatime({
-                            default: (angular.isDefined(scope.default)) ? scope.default : '',
-                            fromnow: (angular.isDefined(scope.fromnow)) ? scope.fromnow : 0,
+                            defaultTime: (angular.isDefined(scope.defaultTime)) ? scope.defaultTime : '',
+                            fromNow: (angular.isDefined(scope.fromNow)) ? scope.fromNow: 0,
                             donetext: (angular.isDefined(scope.donetext)) ? scope.donetext : 'Done',
                             autoclose: (angular.isDefined(scope.autoclose)) ? scope.autoclose : false,
-                            ampmclickable: (angular.isDefined(scope.ampmclickable)) ? scope.ampmclickable : false,
                             darktheme: (angular.isDefined(scope.darktheme)) ? scope.darktheme : false,
                             twelvehour: (angular.isDefined(scope.twelvehour)) ? scope.twelvehour : true,
                             vibrate: (angular.isDefined(scope.vibrate)) ? scope.vibrate : true
