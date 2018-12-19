@@ -574,15 +574,15 @@ $scope.onStop = function () {
                     <label for="toastDuration">Toast duration</label>
                 </div>
                 <div class="col s2" input-field>
-                    <input id="toastInDuration" type="text" ng-model="dummyInputs.induration" ng-init="dummyInputs.induration = 1000">
+                    <input id="toastInDuration" type="text" ng-model="dummyInputs.inDuration" ng-init="dummyInputs.inDuration = 1000">
                     <label for="toastInDuration">Toast In duration</label>
                 </div>
                 <div class="col s2" input-field>
-                    <input id="toastOutDuration" type="text" ng-model="dummyInputs.outduration" ng-init="dummyInputs.outduration = 1000">
+                    <input id="toastOutDuration" type="text" ng-model="dummyInputs.outDuration" ng-init="dummyInputs.outDuration = 1000">
                     <label for="toastOutDuration">Toast Out duration</label>
                 </div>
                 <div class="input-field col s4">
-                    <a class="waves-effect waves-light btn" message="{{dummyInputs.message}}" duration="{{dummyInputs.duration}}" induration="{{dummyInputs.induration}}" outduration="{{dummyInputs.outduration}}"
+                    <a class="waves-effect waves-light btn" message="{{dummyInputs.message}}" duration="{{dummyInputs.duration}}" inDuration="{{dummyInputs.inDuration}}" outDuration="{{dummyInputs.outDuration}}"
                         callback="callback('Your toast was dismissed')" toast='click'>Toast!</a>
                 </div>
             </div>
@@ -616,25 +616,25 @@ $scope.onStop = function () {
                 </div>
                 <div class="col s8" ng-if="showTooltippedButtons">
                     <!-- data-position can be : bottom, top, left, or right -->
-                    <!-- data-delay controls delay before tooltip shows (in milliseconds)-->
+                    <!-- controls delay before tooltip shows (in milliseconds)-->
                     <a tooltipped="{{showTooltips}}" class="btn col s4 offset-s4 l2 offset-l1" data-position="bottom"
-                        data-delay="50" data-tooltip="I am bottom tooltip"> Bottom</a>
+                         data-tooltip="I am bottom tooltip"> Bottom</a>
                     <a tooltipped="{{showTooltips}}" class="btn col s4 offset-s4 l2 offset-l1" data-position="top"
-                        data-delay="150" data-tooltip="I am top tooltip"> Top</a>
+                         data-tooltip="I am top tooltip"> Top</a>
                     <a tooltipped="{{showTooltips}}" class="btn col s4 offset-s4 l2 offset-l1" data-position="left"
-                        data-delay="250" data-tooltip="I am left tooltip"> Left</a>
+                         data-tooltip="I am left tooltip"> Left</a>
                     <a tooltipped="{{showTooltips}}" class="btn col s4 offset-s4 l2 offset-l1" data-position="right"
-                        data-delay="550" data-tooltip="I am right tooltip"> Right</a>
+                         data-tooltip="I am right tooltip"> Right</a>
                 </div>
             </div>
             <div class="row">
                 <pre><code class="language-markup" ng-non-bindable>&lt;div class="col s8" ng-if="showTooltip"&gt;
     &lt;!-- data-position can be : bottom, top, left, or right --&gt;
-    &lt;!-- data-delay controls delay before tooltip shows (in milliseconds)--&gt;
-    &lt;a tooltipped class="btn col s4 offset-s4 l2 offset-l1" data-position="bottom" data-delay="50" data-tooltip="I am tooltip"&gt; Bottom&lt;/a&gt;
-    &lt;a tooltipped class="btn col s4 offset-s4 l2 offset-l1" data-position="top" data-delay="150" data-tooltip="I am tooltip"&gt; Top&lt;/a&gt;
-    &lt;a tooltipped class="btn col s4 offset-s4 l2 offset-l1" data-position="left" data-delay="250" data-tooltip="I am tooltip"&gt; Left&lt;/a&gt;
-    &lt;a tooltipped class="btn col s4 offset-s4 l2 offset-l1" data-position="right" data-delay="550" data-tooltip="I am tooltip"&gt; Right&lt;/a&gt;
+    &lt;!-- controls delay before tooltip shows (in milliseconds)--&gt;
+    &lt;a tooltipped class="btn col s4 offset-s4 l2 offset-l1" data-position="bottom" "50" data-tooltip="I am tooltip"&gt; Bottom&lt;/a&gt;
+    &lt;a tooltipped class="btn col s4 offset-s4 l2 offset-l1" data-position="top" "150" data-tooltip="I am tooltip"&gt; Top&lt;/a&gt;
+    &lt;a tooltipped class="btn col s4 offset-s4 l2 offset-l1" data-position="left" "250" data-tooltip="I am tooltip"&gt; Left&lt;/a&gt;
+    &lt;a tooltipped class="btn col s4 offset-s4 l2 offset-l1" data-position="right" "550" data-tooltip="I am tooltip"&gt; Right&lt;/a&gt;
 &lt;/div&gt;</code></pre>
             </div>
             <div class="row" id="pushpin">

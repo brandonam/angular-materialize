@@ -271,8 +271,8 @@
                         var message = (angular.isDefined(scope.message)) ? scope.message : "";
                         var toastclass = (angular.isDefined(attrs.toastclass)) ? attrs.toastclass : "";
                         var duration = (angular.isDefined(attrs.duration)) ? attrs.duration : 4000;
-                        var inDuration = (angular.isDefined(attrs.induration)) ? attrs.induration : 300;
-                        var outDuration = (angular.isDefined(attrs.outduration)) ? attrs.outduration : 375;
+                        var inDuration = (angular.isDefined(attrs.inDuration)) ? attrs.inDuration : 300;
+                        var outDuration = (angular.isDefined(attrs.outDuration)) ? attrs.outDuration : 375;
                         M.toast({
                             html: message,
                             classes: toastclass,
@@ -1296,18 +1296,18 @@
                             // https://github.com/Dogfalo/materialize/issues/3546
                             // if element.addClass("tooltipped") would not be executed, then probably this would not be needed
                             if (element.attr('data-tooltip-id')) {
-                                element.tooltip('remove');
+                                element.tooltip().close();
                             }
                             element.tooltip();
                         });
                         rmDestroyListener = scope.$on('$destroy', function () {
-                            element.tooltip("remove");
+                            element.tooltip().close();
                         });
                     }
 
                     attrs.$observe('tooltipped', function (value) {
                         if (value === 'false' && rmDestroyListener !== Function.prototype) {
-                            element.tooltip("remove");
+                            element.tooltip().close();
                             rmDestroyListener();
                             rmDestroyListener = Function.prototype;
                         } else if (value !== 'false' && rmDestroyListener === Function.prototype) {
@@ -1321,7 +1321,7 @@
 
                     // just to be sure, that tooltip is removed when somehow element is destroyed, but the parent scope is not
                     element.on('$destroy', function () {
-                        element.tooltip("remove");
+                        element.tooltip().destroy();
                     });
 
                     scope.$watch(function () {
