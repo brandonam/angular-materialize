@@ -1,4 +1,7 @@
 var app = angular.module('materializeApp', ['ui.materialize'])
+    .run(function(){
+        M.AutoInit();
+    })
     .controller('BodyController', ["$scope", function ($scope) {
         $scope.select = {
             value1: "Option1",
@@ -10,9 +13,8 @@ var app = angular.module('materializeApp', ['ui.materialize'])
         $scope.dummyInputs = {};
 
         $scope.toast = function (message, duration) {
-            Materialize.toast(message, duration);
+            M.toast();
         }
-
     }])
     .controller('CollapsibleController', ["$scope", function ($scope) {
         $scope.collapsibleElements = [{
@@ -44,7 +46,7 @@ var app = angular.module('materializeApp', ['ui.materialize'])
         };
     }]).controller('PaginationController', ["$scope", function ($scope) {
         $scope.changePage = function (page) {
-            Materialize.toast("Changed to page " + page, 1000);
+            M.toast({html:"Changed to page " + page});
         }
     }])
     .controller('DateController', ["$scope", function ($scope) {
@@ -81,10 +83,12 @@ var app = angular.module('materializeApp', ['ui.materialize'])
         };
     }]).controller("ModalController", ["$scope", function (scope) {
         scope.readyCallback = function () {
-            Materialize.toast("Modal ready", 1000);
+            console.log("TEST1")
+            M.toast({html: "Modal ready", displayLength: 1000});
         }
         scope.completeCallback = function () {
-            Materialize.toast("Modal complete", 1000);
+            console.log("TEST2")
+            M.toast({html: "Modal Complete", displayLength: 1000});
         }
 
         scope.openModal = false;
