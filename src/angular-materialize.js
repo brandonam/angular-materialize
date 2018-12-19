@@ -514,7 +514,7 @@
                             label.attr("for", id);
                         }
 
-                        Materialize.updateTextFields();
+                        M.updateTextFields();
 
                         // The "> > [selector]", is to restrict to only those tags that are direct children of the directive element. Otherwise we might hit to many elements with the selectors.
 
